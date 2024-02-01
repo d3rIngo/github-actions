@@ -13,3 +13,18 @@ jobs:
     steps:
       - name: Hello World
         run: echo "Hello World"
+
+build_code:
+  runs-on: ubuntu_latest
+  needs: hello_world
+  steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+    - name: Setup Node 
+      uses: actions/setup-node@v4.0.1
+      with:
+        node-version: latest
+    - name: Build Project
+      run: npm install
+    - name: Run Code
+      
